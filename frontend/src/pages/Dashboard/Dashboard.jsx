@@ -1,27 +1,68 @@
-import Navbar from "../../components/common/Navbar/Navbar";
-import Sidebar from "../../components/common/Sidebar/Sidebar";
+import Layout
+from "../../components/common/Layout/Layout";
+import ProjectTable
+from "../../components/dashboard/ProjectTable/ProjectTable";
+import ProjectStatusChart
+from "../../components/analytics/ProjectStatusChart/ProjectStatusChart";
+import RecentActivities
+from "../../components/dashboard/RecentActivities/RecentActivities";
+import FundingChart 
+from "../../components/analytics/FundingChart/FundingChart";
+import LiveMap 
+from "../../components/tracking/LiveMap/LiveMap";
+import AIAlerts from "../../components/analytics/AIAlerts/AIAlerts";
+
+import StatsCard
+from "../../components/dashboard/StatsCard/StatsCard";
+
 import "./Dashboard.css";
 
 function Dashboard() {
+
   return (
-    <div className="dashboard-container">
-      <Sidebar />
 
-      <div className="main-content">
-        <Navbar />
+    <Layout>
 
-        <div className="dashboard-content">
-          <h1>InfraTrack Dashboard</h1>
+      <div className="dashboard">
 
-          <div className="cards">
-            <div className="card">Total Projects</div>
-            <div className="card">Funds Released</div>
-            <div className="card">Ongoing Works</div>
-            <div className="card">Corruption Alerts</div>
-          </div>
+        <h1>
+          Infrastructure Dashboard
+        </h1>
+
+
+        <div className="stats-container">
+
+          <StatsCard
+            title="Total Projects"
+            value="120"
+          />
+
+          <StatsCard
+            title="Active Projects"
+            value="86"
+          />
+
+          <StatsCard
+            title="Completed Projects"
+            value="34"
+          />
+
+          <StatsCard
+            title="Delayed Projects"
+            value="12"
+          />
+
         </div>
+         <ProjectTable />
+         <ProjectStatusChart />
+         <RecentActivities />
+         <FundingChart />
+         <LiveMap />
+         <AIAlerts />
+
       </div>
-    </div>
+
+    </Layout>
   );
 }
 

@@ -1,14 +1,63 @@
 import "./Navbar.css";
 
-function Navbar() {
-  return (
-    <nav className="navbar">
-      <div className="logo">InfraTrack</div>
+import { useNavigate }
+from "react-router-dom";
 
-      <div className="nav-right">
-        <span>Admin</span>
+function Navbar() {
+
+  const navigate =
+    useNavigate();
+
+  const user =
+    JSON.parse(
+      localStorage.getItem("user")
+    );
+
+
+
+  const handleLogout = () => {
+
+    // Remove token
+    localStorage.removeItem(
+      "token"
+    );
+
+    // Remove user
+    localStorage.removeItem(
+      "user"
+    );
+
+    // Redirect login
+    navigate("/login");
+  };
+
+
+
+  return (
+
+    <div className="navbar">
+
+      <h2>
+        Infrastructure Monitoring System
+      </h2>
+
+
+      <div className="navbar-right">
+
+        <span>
+          {user?.name}
+        </span>
+
+        <button
+          onClick={handleLogout}
+          className="logout-btn"
+        >
+          Logout
+        </button>
+
       </div>
-    </nav>
+
+    </div>
   );
 }
 
