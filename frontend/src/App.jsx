@@ -6,6 +6,7 @@ import {
 
 import Login from "./pages/Login/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Complaints from "./pages/Complaints/Complaints";
 
 import ProtectedRoute
 from "./routes/ProtectedRoute";
@@ -22,7 +23,10 @@ function App() {
           path="/login"
           element={<Login />}
         />
-
+       <Route
+  path="/complaints"
+  element={<Complaints />}
+/>
 
         <Route
           path="/dashboard"
